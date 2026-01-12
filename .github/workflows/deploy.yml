@@ -1,0 +1,26 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build Docker images
+      run: |
+        docker build -t goodfirstproject/crawler:latest services/crawler
+        docker build -t goodfirstproject/ml:latest services/ml
+
+    - name: Push to Registry
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        docker push goodfirstproject/crawler:latest
+        docker push goodfirstproject/ml:latest
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/
