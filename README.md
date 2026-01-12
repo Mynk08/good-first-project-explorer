@@ -363,9 +363,7 @@ Special thanks to:
 
 ## 📞 Community
 
-- 💬 [Discord Server](https://discord.gg/good-first-project)
-- 🐦 [Twitter @GoodFirstProj](https://twitter.com/GoodFirstProj)
-- 📧 Email: hello@good-first-project.dev
+- 📧 Email: baidmayank17@gmail.com
 - 📺 [YouTube Tutorials](https://youtube.com/good-first-project)
 
 ---
